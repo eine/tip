@@ -1,0 +1,41 @@
+name: 'push'
+
+on:
+  push:
+    tags:
+      - '*'
+      - '!tip'
+    branches:
+      - '*'
+  pull_request:
+
+jobs:
+
+  action:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - run: yarn
+    - run: yarn build
+    - run: yarn test
+    - name: Deploy to gha-tip
+      env:
+        GH_DEPKEY: ${{ secrets.GHA_DEPLOY_KEY }}
+        GH_SHA: ${{ github.sha }}
+      run: ./.github/update_gha-tip.sh
+
+  tool:
+    needs: [ action ]
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Build
+      run: |
+        echo "Build some tool and generate some artifacts" > artifact.txt
+    - uses: 1138-4EB/tip@gha-tip
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        cwd: ${{ github.workspace }}
+        files: |
+          artifact.txt
+          README.md
