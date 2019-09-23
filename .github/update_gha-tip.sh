@@ -33,17 +33,11 @@ git diff --exit-code --stat -- . ':!node_modules' \
 gend
 
 gstart "Update files in branch gha-tip"
-cp package.json action.yml dist/
+cp action.yml dist/
 head -`grep -n "## Development" README.md | cut -f1 -d:` README.md | sed '$d' > dist/README.md
 git checkout gha-tip
 mv dist/* ./
-rm -rf dist
-gend
-
-gstart "Run yarn install --production"
-rm -Rf node_modules
-yarn install --production
-rm package.json yarn.lock
+rm -rf dist node_modules
 gend
 
 if ! git diff --no-ext-diff --quiet --exit-code; then

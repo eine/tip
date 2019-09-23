@@ -16,6 +16,7 @@ export async function run() {
     if (github.context.payload.repository && github.context.payload.repository.full_name) {
         slug = github.context.payload.repository.full_name.split('/')
     }
+
     const owner = slug[0]
     const repo = slug[1]
     const tag_name = 'tip'
@@ -31,6 +32,7 @@ export async function run() {
     console.log(tip_rel);
     core.endGroup()
 
+    // TODO is it possible/better to update the release instead of removing it and creating a new one?
     core.startGroup('Remove existing tip release...')
     const { data: del } = await octokit.repos.deleteRelease({ owner, repo, release_id: tip_rel.id });
     console.log(del);
@@ -68,8 +70,7 @@ export async function run() {
             file: createReadStream(file),
           });
         });
-    })
-
+      })
     });
   }
 
