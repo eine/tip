@@ -16,6 +16,7 @@ export async function run() {
     if (github.context.payload.repository && github.context.payload.repository.full_name) {
         slug = github.context.payload.repository.full_name.split('/')
     }
+
     const owner = slug[0]
     const repo = slug[1]
     const tag_name = 'tip'
@@ -68,8 +69,7 @@ export async function run() {
             file: createReadStream(file),
           });
         });
-    })
-
+      })
     });
   }
 
