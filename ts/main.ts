@@ -56,6 +56,10 @@ export async function run() {
           throw er;
         }
 
+        if (files.length == 0) {
+          console.log('WARNING! Glob patter <' + item + '> produced an empty file list');
+        }
+
         files.forEach(async function(name){
 
           const file = join(xcwd, name);
