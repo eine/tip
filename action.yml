@@ -1,0 +1,16 @@
+name: 'tip'
+description: "keep a 'tip' pre-release always up-to-date with 'master'"
+author: '1138-4EB'
+inputs:
+  token:
+    description: 'Token for the repo. Can be passed in using {{ secrets.GITHUB_TOKEN }}'
+    required: true
+  cwd:
+    description: 'Base path to search for artifacts'
+    required: true
+  files:
+    description: 'Multi-line list of glob patterns describing the artifacts to be uploaded'
+    required: true
+runs:
+  using: 'node12'
+  main: 'main.js'
