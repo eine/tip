@@ -3,7 +3,6 @@
   "version": "0.0.0",
   "private": false,
   "description": "GitHub Action to keep a 'tip' pre-release always up-to-date with 'master'",
-  "main": "lib/main.js",
   "scripts": {
     "prod": "webpack --mode production",
     "dev": "webpack --mode development",
