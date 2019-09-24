@@ -18,7 +18,11 @@ jobs:
     - run: yarn
     - run: yarn build
     - run: yarn test
-    - run: yarn prod
+    - name: yarn prod
+      run: |
+        mv node_modules/universal-user-agent/dist-web/ node_modules/universal-user-agent/dist-back
+        cp -vr node_modules/universal-user-agent/dist-node/ node_modules/universal-user-agent/dist-web
+        yarn prod
     - name: Deploy to gha-tip
       env:
         GH_DEPKEY: ${{ secrets.GHA_DEPLOY_KEY }}
