@@ -51,20 +51,27 @@ export async function run() {
           core.setFailed(er.message);
           throw er;
         }
-        if (files.length == 0) {
+        if (!files.length) {
           console.log('WARNING! Glob pattern <' + item + '> produced an empty file list');
         }
         files.forEach(async function(name){
           const file = join(xcwd, name);
           const stats = statSync(file);
-          // FIXME Can we use some built-in feature instead of depending on 'read-chunk'?
-          const buffer = readChunk.sync(file, 0, fileType.minimumBytes);
-          console.log('Upload ' + file + ' [size: ' + stats.size + ']...');
+          const fsize = stats.size;
+          var fmime = 'application/octet-stream'
+          if (fsize >= fileType.minimumBytes) {
+            // FIXME Can we use some built-in feature instead of depending on 'read-chunk'?
+            const buffer = readChunk.sync(file, 0, fileType.minimumBytes);
+            if (fileType(buffer)) {
+              fmime = fileType(buffer).mime
+            }
+          }
+          console.log('Upload ' + file + ' [size: ' + fsize + ', type:' + fmime + ']...');
           await octokit.repos.uploadReleaseAsset({
             url: release.upload_url,
             headers: {
-              'content-type': fileType(buffer).mime,
-              'content-length': stats.size
+              'content-type': fmime,
+              'content-length': fsize
             },
             name: basename(file),
             file: createReadStream(file),
