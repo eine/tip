@@ -12,7 +12,7 @@ const fileType = require('file-type');
 
 export async function run() {
   try {
-    var slug = ['user','repo']
+    let slug = ['user','repo']
     if (github.context.payload.repository && github.context.payload.repository.full_name) {
         slug = github.context.payload.repository.full_name.split('/')
     }
@@ -57,7 +57,7 @@ export async function run() {
           const file = join(xcwd, name);
           const stats = statSync(file);
           const fsize = stats.size;
-          var fmime = 'application/octet-stream'
+          let fmime = 'application/octet-stream'
           if (fsize >= fileType.minimumBytes) {
             // FIXME Can we use some built-in feature instead of depending on 'read-chunk'?
             const buffer = readChunk.sync(file, 0, fileType.minimumBytes);
@@ -67,13 +67,13 @@ export async function run() {
           }
           console.log('Upload ' + file + ' [size: ' + fsize + ', type:' + fmime + ']...');
           await octokit.repos.uploadReleaseAsset({
-            url: release.upload_url,
+            file: createReadStream(file),
             headers: {
+              'content-length': fsize,
               'content-type': fmime,
-              'content-length': fsize
             },
             name: basename(file),
-            file: createReadStream(file),
+            url: release.upload_url,
           });
         });
       })
