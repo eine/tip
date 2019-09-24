@@ -46,8 +46,7 @@ Note that the tag and the pre-release need to be created manually the first time
 git checkout -b <release branch name>
 
 rm -Rf node_modules
-cp README.md dist/
-git rm -rf *.json *config.js *.lock .github .gitignore __tests__ ts README.md
+git rm -rf *.json *config.js *.lock .github .gitignore __tests__ ts
 git add dist
 git mv dist/* ./
 git add .
