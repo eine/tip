@@ -20,23 +20,23 @@
   "author": "1138-4EB",
   "license": "MIT",
   "dependencies": {
-    "@actions/core": "^1.1.0",
+    "@actions/core": "^1.2.0",
     "@actions/exec": "^1.0.1",
     "@actions/github": "^1.1.0",
     "@actions/io": "^1.0.1",
-    "file-type": "^12.3.0",
-    "glob": "^7.1.4",
+    "file-type": "^12.4.0",
+    "glob": "^7.1.6",
     "read-chunk": "^3.2.0"
   },
   "devDependencies": {
-    "@types/jest": "^24.0.13",
-    "@types/node": "^12.0.4",
+    "@types/jest": "^24.0.23",
+    "@types/node": "^12.12.9",
     "jest": "^24.8.0",
     "jest-circus": "^24.7.1",
     "ts-jest": "^24.0.2",
-    "ts-loader": "^6.0.4",
-    "typescript": "^3.5.1",
-    "webpack": "^4.39.1",
-    "webpack-cli": "^3.3.6"
+    "ts-loader": "^6.2.1",
+    "typescript": "^3.7.2",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10"
   }
 }
