@@ -34,7 +34,7 @@
     "jest": "^24.8.0",
     "jest-circus": "^24.7.1",
     "ts-jest": "^24.0.2",
-    "ts-loader": "^6.0.4",
+    "ts-loader": "^6.2.0",
     "typescript": "^3.5.1",
     "webpack": "^4.41.0",
     "webpack-cli": "^3.3.6"
