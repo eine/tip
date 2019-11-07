@@ -25,7 +25,7 @@
     "@actions/github": "^1.1.0",
     "@actions/io": "^1.0.1",
     "file-type": "^12.4.0",
-    "glob": "^7.1.5",
+    "glob": "^7.1.6",
     "read-chunk": "^3.2.0"
   },
   "devDependencies": {
