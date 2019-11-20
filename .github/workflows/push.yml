@@ -9,6 +9,9 @@ on:
       - '*'
   pull_request:
 
+env:
+  CI: true
+
 jobs:
 
   action:
@@ -20,10 +23,9 @@ jobs:
     - run: yarn test
     - run: yarn prod
     - name: Deploy to gha-tip
-      env:
-        GH_DEPKEY: ${{ secrets.GHA_DEPLOY_KEY }}
-        GH_SHA: ${{ github.sha }}
       run: ./.github/update_gha-tip.sh
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   tool:
     needs: [ action ]
