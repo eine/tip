@@ -24,7 +24,7 @@
     "@actions/exec": "^1.0.2",
     "@actions/github": "^2.0.0",
     "@actions/io": "^1.0.1",
-    "file-type": "^12.4.0",
+    "file-type": "^12.4.2",
     "glob": "^7.1.6",
     "read-chunk": "^3.2.0"
   },
