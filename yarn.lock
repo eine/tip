@@ -22,10 +22,10 @@
     "@octokit/graphql" "^4.3.1"
     "@octokit/rest" "^16.15.0"
 
-"@actions/io@^1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@actions/io/-/io-1.0.1.tgz#81a9418fe2bbdef2d2717a8e9f85188b9c565aca"
-  integrity sha512-rhq+tfZukbtaus7xyUtwKfuiCRXd1hWSfmJNEpFgBQJ4woqPEpsBw04awicjwz9tyG2/MVhAEMfVn664Cri5zA==
+"@actions/io@^1.0.1", "@actions/io@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@actions/io/-/io-1.0.2.tgz#2f614b6e69ce14d191180451eb38e6576a6e6b27"
+  integrity sha512-J8KuFqVPr3p6U8W93DOXlXW6zFvrQAJANdS+vw0YhusLIq+bszW8zmK2Fh1C2kDPX8FMvwIl1OUcFgvJoXLbAg==
 
 "@babel/code-frame@^7.0.0", "@babel/code-frame@^7.5.5":
   version "7.5.5"
