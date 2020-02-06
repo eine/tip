@@ -2101,10 +2101,10 @@ figgy-pudding@^3.5.1:
   resolved "https://registry.yarnpkg.com/figgy-pudding/-/figgy-pudding-3.5.1.tgz#862470112901c727a0e495a80744bd5baa1d6790"
   integrity sha512-vNKxJHTEKNThjfrdJwHc7brvM6eVevuO5nTj6ez8ZQ1qbXTvGthucRF7S4vf2cr71QVnT70V34v0S1DyQsti0w==
 
-file-type@^14.1.0:
-  version "14.1.0"
-  resolved "https://registry.yarnpkg.com/file-type/-/file-type-14.1.0.tgz#32334d9c14462bc12e6c95f8a44630125c6c4e8c"
-  integrity sha512-HfxnzrPH+LLClSAsno88/0frRtamu1XfqEP4IP/8RqBmqQnBQkemv3Udde0t53wZmrdOtc70aaR9WUHyQhjCUQ==
+file-type@^14.1.1:
+  version "14.1.1"
+  resolved "https://registry.yarnpkg.com/file-type/-/file-type-14.1.1.tgz#d624d512da648cf8916d1416303297493a97011b"
+  integrity sha512-fGmNwmRgDi3uMDNbJfRRKaOUGN/uzeWRl2Ti9RJdvLpzFMKbl5cBGP3ngHYKiBSbHPB8wzMckP9x9SixJDFftg==
   dependencies:
     readable-web-to-node-stream "^2.0.0"
     strtok3 "^6.0.0"
