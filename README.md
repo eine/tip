@@ -27,9 +27,9 @@ jobs:
     # - Remove existing release named `tip`.
     # - Create a new release named `tip` that points to tag `tip`.
     # - Upload artifacts defined by the user.
-    - uses: 1138-4EB/tip@gha-tip
+    - uses: eine/tip@gha-tip
       with:
-        token:  ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.GITHUB_TOKEN }}
         cwd: ${{ github.workspace }}
         files: |
           artifact.txt
