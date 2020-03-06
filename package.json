@@ -12,12 +12,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/1138-4EB/tip.git"
+    "url": "git+https://github.com/eine/tip.git"
   },
   "keywords": [
     "actions"
   ],
-  "author": "1138-4EB",
+  "author": "eine",
   "license": "MIT",
   "dependencies": {
     "@actions/core": "^1.2.2",

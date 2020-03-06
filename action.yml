@@ -1,6 +1,6 @@
 name: 'tip'
 description: "keep a 'tip' pre-release always up-to-date with 'master'"
-author: '1138-4EB'
+author: 'eine'
 inputs:
   token:
     description: 'Token for the repo. Can be passed in using {{ secrets.GITHUB_TOKEN }}'
