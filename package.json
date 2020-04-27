@@ -24,19 +24,19 @@
     "@actions/exec": "^1.0.3",
     "@actions/github": "^2.1.1",
     "@actions/io": "^1.0.2",
-    "file-type": "^14.1.4",
+    "file-type": "^14.2.0",
     "glob": "^7.1.6",
     "read-chunk": "^3.2.0"
   },
   "devDependencies": {
     "@types/jest": "^25.2.1",
-    "@types/node": "^13.13.0",
+    "@types/node": "^13.13.4",
     "jest": "^25.4.0",
     "jest-circus": "^25.4.0",
     "ts-jest": "^25.4.0",
     "ts-loader": "^7.0.1",
     "typescript": "^3.8.3",
-    "webpack": "^4.42.1",
+    "webpack": "^4.43.0",
     "webpack-cli": "^3.3.11"
   }
 }
