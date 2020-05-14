@@ -1,0 +1,44 @@
+name: 'push'
+
+on:
+  push:
+    tags:
+      - '*'
+      - '!tip'
+    branches:
+      - '*'
+  pull_request:
+
+env:
+  CI: true
+
+jobs:
+
+  action:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - run: yarn
+    - run: yarn build
+    - run: yarn test
+    - run: yarn prod
+    - name: Deploy to gha-tip
+      run: ./.github/update_gha-tip.sh
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  tool:
+    needs: [ action ]
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Build
+      run: |
+        echo "Build some tool and generate some artifacts" > artifact.txt
+    - uses: eine/tip@gha-tip
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        cwd: ${{ github.workspace }}
+        files: |
+          artifact.txt
+          README.md
