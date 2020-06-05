@@ -67,19 +67,23 @@ gh_release = gh_repo.get_release(tag)
 print("· Upload artifacts")
 
 artifacts = files
+remove_all = getenv('INPUT_REMOVE_ALL', 'false') == 'true'
 
 for asset in gh_release.get_assets():
     print(">", asset)
     print(" ", asset.name)
-    for artifact in artifacts:
-        aname = str(Path(artifact).name)
-        if asset.name == aname:
-            print(" removing '%s'..." % asset.name)
-            asset.delete_asset()
-            print(" uploading '%s'..." % artifact)
-            gh_release.upload_asset(artifact, name=aname)
-            artifacts.remove(artifact)
-            break
+    if remove_all:
+        asset.delete_asset()
+    else:
+        for artifact in artifacts:
+            aname = str(Path(artifact).name)
+            if asset.name == aname:
+                print(" removing '%s'..." % asset.name)
+                asset.delete_asset()
+                print(" uploading '%s'..." % artifact)
+                gh_release.upload_asset(artifact, name=aname)
+                artifacts.remove(artifact)
+                break
 
 for artifact in artifacts:
     print(" uploading '%s'..." % artifact)
