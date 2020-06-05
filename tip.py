@@ -68,7 +68,8 @@ print("· Upload artifacts")
 
 artifacts = files
 remove_all = getenv('INPUT_RM', 'false') == 'true'
-print(". RM ", getenv('INPUT_RM', 'false'), remove_all)
+if remove_all:
+    print(". RM set. All previous assets will be cleared.")
 
 for asset in gh_release.get_assets():
     print(">", asset)
