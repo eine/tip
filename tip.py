@@ -67,7 +67,8 @@ gh_release = gh_repo.get_release(tag)
 print("· Upload artifacts")
 
 artifacts = files
-remove_all = getenv('INPUT_REMOVE_ALL', 'false') == 'true'
+remove_all = getenv('INPUT_RM', 'false') == 'true'
+print(". RM ", getenv('INPUT_RM', 'false'), remove_all)
 
 for asset in gh_release.get_assets():
     print(">", asset)
