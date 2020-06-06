@@ -19,7 +19,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
       
-    - run: echo "Build some tool and generate some (versioned) artifacts" > artifact-$(date -u +"%Y-%m-%dT%H:%M:%SZ").txt
+    - run: echo "Build some tool and generate some (versioned) artifacts" > artifact-$(date -u +"%Y-%m-%dT%H-%M-%SZ").txt
 
     - name: Single
       uses: ./
