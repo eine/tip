@@ -9,6 +9,7 @@ from glob import glob
 from pathlib import Path
 from github import Github
 from github import GithubException
+import magick
 
 print("· Get list of artifacts to be uploaded")
 
@@ -137,8 +138,9 @@ def delete_asset_by_name(name):
 
 
 def upload_asset(artifact, name):
+    content_type = magic.Magic(mime=True).from_file(artifact)
     try:
-        return gh_release.upload_asset(artifact, name=name)
+        return gh_release.upload_asset(artifact, name=name, content_type=content_type)
     except GithubException as ex:
         if "already_exists" in [err["code"] for err in ex.data["errors"]]:
             print(f"   - {name} exists already! deleting...")
@@ -149,7 +151,7 @@ def upload_asset(artifact, name):
         print(f"   - uploading failed: {ex}")
 
     print(f"   - retry uploading {name}...")
-    return gh_release.upload_asset(artifact, name=name)
+    return gh_release.upload_asset(artifact, name=name, content_type=content_type)
 
 
 def replace_asset(artifacts, asset):
