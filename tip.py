@@ -150,12 +150,12 @@ def upload_asset(artifact, name):
     except Exception as ex:
         print(f"   - uploading failed: {ex}")
 
-    print(f"   - retry uploading {name}...")
+    print(f"   - retry uploading {name} ({content_type})...")
     return gh_release.upload_asset(artifact, name=name, content_type=content_type)
 
 
 def replace_asset(artifacts, asset):
-    print(f" > {asset!s}\n   {asset.name!s}:")
+    print(f" > {asset!s}\n   {asset.name!s} ({asset.content_type!s}):")
     for artifact in artifacts:
         aname = str(Path(artifact).name)
         if asset.name == aname:
