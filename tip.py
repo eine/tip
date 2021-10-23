@@ -9,7 +9,7 @@ from glob import glob
 from pathlib import Path
 from github import Github
 from github import GithubException
-import magick
+import magic
 
 print("· Get list of artifacts to be uploaded")
 
