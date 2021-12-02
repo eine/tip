@@ -10,6 +10,11 @@ from pathlib import Path
 from github import Github
 from github import GithubException
 
+print("""
+DEPRECATED! 'tip' was merged into pyTooling/Actions and renamed to 'releaser'.
+It is recommended to use `uses: pyTooling/Actions/releaser@main`, instead of `uses: eine/tip@master`.
+""")
+
 print("· Get list of artifacts to be uploaded")
 
 args = []
